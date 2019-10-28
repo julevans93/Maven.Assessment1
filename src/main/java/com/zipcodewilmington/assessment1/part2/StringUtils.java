@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import com.sun.xml.internal.fastinfoset.util.StringArray;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -58,7 +60,18 @@ public class StringUtils {
      * given a string containing words delimited by spaces, representative of a sentence, return the first word with identical contents in reverse order with the first character capitalized
      */
     public static String reverseFirstWordThenCamelCase(String sentence) {
-        return null;
+        String [] array = sentence.split(" ");
+        String result = "";
+        String reverse = "";
+        String outcome = "";
+        for (int i = 0; i < array.length; i++){
+            result = array[0].toString();
+        }
+        for (int j = result.length()-1; j >= 0; j--){
+            reverse = reverse + result.charAt(j);
+        }
+        outcome = reverse.substring(0,1).toUpperCase() + reverse.substring(1).toLowerCase();
+        return outcome;
     }
 
 
@@ -69,7 +82,12 @@ public class StringUtils {
      * given a string and index, return an identical string excluding the character at the specified index
      */
     public static String removeCharacterAtIndex(String str, int index) {
-        return null;
+        for (int i = 0; i < str.length(); i++){
+            if (i == index){
+            str.replace(str.charAt(i), ' ');
+            }
+        }
+        return str;
     }
 
 }
