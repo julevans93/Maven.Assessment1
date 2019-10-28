@@ -13,17 +13,15 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        List evens = Arrays.asList(ints);
-        for (int i = 0; i < evens.size(); i ++){
-            if(i % 2 == 0){
-                evens.remove(i);
+        for (int i = 0; i < ints.length; i++) {
+            boolean x = false;
+            if (ints[i] % 2 == 0) {
+                x = true;
             }
-
-
-        }
-        return ints;
+            if (!x) {
+            }
+        }return ints;
     }
-
     /**
      * @param ints array of Integer objects
      * @return all ints which are divisible by 2
