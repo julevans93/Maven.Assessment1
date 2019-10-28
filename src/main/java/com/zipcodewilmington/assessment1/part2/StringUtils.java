@@ -2,6 +2,9 @@ package com.zipcodewilmington.assessment1.part2;
 
 import com.sun.xml.internal.fastinfoset.util.StringArray;
 
+import java.util.List;
+import java.util.stream.IntStream;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -82,12 +85,7 @@ public class StringUtils {
      * given a string and index, return an identical string excluding the character at the specified index
      */
     public static String removeCharacterAtIndex(String str, int index) {
-        for (int i = 0; i < str.length(); i++){
-            if (i == index){
-            str.replace(str.charAt(i), ' ');
-            }
-        }
-        return str;
+       return str.substring(0, index) + str.substring(index +1);
     }
 
-}
+    }
