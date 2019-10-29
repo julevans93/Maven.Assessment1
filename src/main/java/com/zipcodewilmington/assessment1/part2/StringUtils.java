@@ -1,6 +1,5 @@
 package com.zipcodewilmington.assessment1.part2;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 
 import java.util.List;
 import java.util.stream.IntStream;
