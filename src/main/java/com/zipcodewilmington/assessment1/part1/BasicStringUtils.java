@@ -9,8 +9,8 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        str = str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
-        return str;
+
+        return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
     }
 
     /**
@@ -54,16 +54,15 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        char[] chars = str.toCharArray();
-        for(int i = 0; i < chars.length; i++){
-            char x = chars[i];
-            if (Character.isUpperCase(x)){
-                chars[i] = Character.toLowerCase(x);
+        String result = "";
+        for(int i = 0; i < str.length(); i++){
+            if(Character.isLowerCase(str.charAt(i))) {
+                result += Character.toUpperCase(str.charAt(i));
             }
-            else if (Character.isLowerCase(x)){
-                chars[i] = Character.toUpperCase(x);
-            }
+                else{
+                    result += Character.toLowerCase(str.charAt(i));}
         }
-        return new String(chars);
+        return result;
     }
 }
+

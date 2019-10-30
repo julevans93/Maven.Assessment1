@@ -13,14 +13,12 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
+        Integer [] intsDelete = new Integer[ints.length-4];
         for (int i = 0; i < ints.length; i++) {
-            boolean x = false;
-            if (ints[i] % 2 == 0) {
-                x = true;
+            if (ints[i] %2 != 0){
+                ints[i] = intsDelete[i];
             }
-            if (!x) {
-            }
-        }return ints;
+        }return intsDelete;
     }
     /**
      * @param ints array of Integer objects

@@ -9,11 +9,8 @@ public class BasicArrayUtils {
      * @return the first element in the array
      */
     public static String getFirstElement(String[] stringArray) {
-        String result = "";
-        for(int i = 0; i <= stringArray.length; i++){
-           result = stringArray[0].toString();
-        }
-        return result;
+
+        return stringArray[1];
     }
 
     /**
