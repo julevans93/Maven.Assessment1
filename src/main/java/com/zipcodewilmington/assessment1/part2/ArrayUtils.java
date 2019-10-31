@@ -14,9 +14,9 @@ public class ArrayUtils {
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
         int counter =0;
-        for(int i = 0; i < objectArray.length; i++){
-            if(objectArray[i] == objectToCount){
-                counter++;
+        for (Object o : objectArray) {
+            if(o.equals(objectToCount)){
+            counter++;
             }
         }
         return counter;
@@ -28,12 +28,10 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        int i, j;
-        for (i = j = 0; j < objectArray.length; j++)
-            if (!objectToRemove.equals(objectArray[j])) objectArray[i++] = objectArray[j];
-        objectArray = Arrays.copyOf(objectArray,i);
-        return objectArray;
+    public static Integer[] removeValue(Integer[] objectArray, Integer objectToRemove) {
+        ArrayList<Integer> removeList = new ArrayList<>(Arrays.asList(objectArray));
+        while(removeList.remove(objectToRemove)){}
+        return removeList.toArray(new Integer [removeList.size()]);
     }
 
     /**
@@ -42,28 +40,16 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        Integer[] integerArray = new Integer[objectArray.length];
-
-        Arrays.sort(integerArray);
-
-        int popular = integerArray[0];
-        int counter1 = 1;
-        int counter2 = 1;
-        int maxCount = 1;
-
-        for (int i = 0; i < integerArray.length; i++) {
-            if (integerArray[i] == integerArray[i+1])
-                counter1++;
-            for (int j = 0; j < i; j++){
-                if (integerArray[j] == integerArray[j+1]){
-                    counter2++;
-                }
-                if (counter1 > counter2){
-                    return counter1;
-                }
-            }
-        }
-        return counter2;
+       int maxCount = 0;
+       Object mostCommon = 0;
+        for (Object x: objectArray){
+          int most = getNumberOfOccurrences(objectArray, x);
+          if(most > maxCount){
+              maxCount = most;
+              mostCommon = x;
+          }
+       }
+        return mostCommon;
     }
 
 
