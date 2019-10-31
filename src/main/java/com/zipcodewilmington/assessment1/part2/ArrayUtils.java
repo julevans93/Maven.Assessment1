@@ -77,10 +77,10 @@ public class ArrayUtils {
      * @return an array containing all elements in `objectArray` and `objectArrayToAdd`
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
-    public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        Object[] n = new Object[objectArray.length + objectArrayToAdd.length];
-        System.arraycopy(objectArray, 0, n, 0, objectArray.length);
-        System.arraycopy(objectArrayToAdd, 0, n, objectArray.length, objectArrayToAdd.length);
-        return n;
+    public static Integer[] mergeArrays(Integer[] objectArray, Integer[] objectArrayToAdd) {
+        List merge = new ArrayList(Arrays.asList(objectArray));
+        merge.addAll(Arrays.asList(objectArrayToAdd));
+        Integer[] mergeAll = (Integer[]) merge.toArray(new Integer[merge.size()]);
+        return mergeAll;
     }
 }
