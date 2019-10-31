@@ -59,7 +59,16 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+        int minCount = 1;
+        Object leastCommon = 0;
+        for (Object x: objectArray){
+            int min = getNumberOfOccurrences(objectArray, x);
+            if(min <= minCount){
+                minCount = min;
+                leastCommon = x;
+            }
+        }
+        return leastCommon;
     }
 
     /**
